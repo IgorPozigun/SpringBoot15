@@ -5,7 +5,7 @@ import com.example.SpringBoot2.model.User;
 import java.util.List;
 
 public interface UserDao {
-    void addUser(User user); // добавление юзера
+    void userAdditions(User user); // добавление юзера
 
     void deleteUser(User user); // удаление
 
@@ -13,5 +13,5 @@ public interface UserDao {
 
     User getUserById(int id); // получение юзера по id
 
-    List<User> allUsers(); // выводит всех юзеров
+    List<User> showAllUsers(); // показать всех юзеров
 }

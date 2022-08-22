@@ -18,7 +18,7 @@ public class UserDaoImp implements UserDao {
 
 
     @Override
-    public void addUser(User user) {
+    public void userAdditions(User user) {
         entityManager.persist(user);
     }
 
@@ -40,7 +40,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<User> allUsers() {
+    public List<User> showAllUsers() {
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
 }

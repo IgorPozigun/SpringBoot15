@@ -5,9 +5,9 @@ import com.example.SpringBoot2.model.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> allUsers(); // выводит всех юзеров
+    List<User> showAllUsers(); // выводит всех юзеров
 
-    void addUser(User user); // добавление юзера
+    void userAdditions(User user); // добавление юзера
 
     void deleteUser(User user); // удаление
 
