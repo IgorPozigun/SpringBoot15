@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User implements Serializable { // объект возводим в байт и передаем его по сети
 
     @Id
