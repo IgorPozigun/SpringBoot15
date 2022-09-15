@@ -1,35 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Users</title>
+	<meta charset="ISO-8859-1">
+	<title>Welcome to CodeJava Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h3>USERS </h3>
-<table border="1" width="500">
-    <tr>
-        <th>id</th>
-        <th>firstName</th>
-        <th>lastName</th>
-        <th>age</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
+	<div class="container text-center">
+		<h1>Welcome to CodeJava.net</h1>
+		<h3><a th:href="@{/user}">List of Users</a></h3>
+		<h3><a th:href="@{/admin}">Register</a></h3>
+		<h3><a th:href="@{/login}">Login</a></h3>
+	</div>
 
-    <tr th:each="user: ${index}">
-
-        <td th:text="${user.getId()}">id</td>
-        <td th:text="${user.getFirstName()}">firstName</td>
-        <td th:text="${user.getLastName()}">lastName</td>
-        <td th:text="${user.getAge()}">age</td>
-
-        <td> <a  th:href="@{/User/edit/{id} (id=${user.id})}">Edit</a> </td>
-        <td> <a  th:href="@{/User/delete/{id} (id=${user.id})}">Delete</a> </td>
-
-    </tr>
-</table>
-<br/>
-<a th:href="@{/User/add}">Add</a>
-</div>
 </body>
 </html>
