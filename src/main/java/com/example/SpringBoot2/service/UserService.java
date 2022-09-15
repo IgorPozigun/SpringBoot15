@@ -16,8 +16,8 @@ public interface UserService {
 
     List<User> showAllUsers(); // показать всех юзеров
 
-//    public List<Role> getAllRoles();// показать все role
+    public List<Role> getAllRoles();// показать все role
 //
-//    public List<Role> findRolesByName(String roleName); // получить юзера по имени
+    public List<Role> findRolesByName(String roleName); // получить юзера по имени
 }
 

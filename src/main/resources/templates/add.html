@@ -20,9 +20,18 @@
             <td><input type="text" name="email"/></td>
             <td>password</td>
             <td><input type="text" name="password"/></td>
-<!--            <td>role</td>-->
-<!--            <td><input type="text" name="role"/></td>-->
+            <td>role</td>
+            <td><input type="text" name="role"/></td>
         </tr>
+        <select multiple class="custom-select w-100"
+                size="2" id="role" name="role">
+            <option
+                    th:each="role : ${roles}"
+                    th:text="${role.getName()}"
+                    th:value="${role.name}">
+            </option>
+        </select>
+
 
     </table>
     <br/>

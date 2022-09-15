@@ -31,22 +31,22 @@ public class UserServiceImp implements UserService {
         userRepository.save(user);
     }
 
-//    @Override
-//    @Transactional
-//    public List<Role> getAllRoles() {
-//        return roleRepository.findAll();
-//    }
+    @Override
+    @Transactional
+    public List<Role> getAllRoles() {
+        return roleRepository.findAll();
+    }
 //
-//    @Override
-//    @Transactional
-//    public List<Role> findRolesByName(String roleName) {
-//        List<Role> roles = new ArrayList<>();
-//        for (Role role : getAllRoles()) {
-//            if (roleName.contains(role.getName()))
-//                roles.add(role);
-//        }
-//        return roles;
-//    }
+    @Override
+    @Transactional
+    public List<Role> findRolesByName(String roleName) {
+        List<Role> roles = new ArrayList<>();
+        for (Role role : getAllRoles()) {
+            if (roleName.contains(role.getName()))
+                roles.add(role);
+        }
+        return roles;
+    }
 
     @Override
     @Transactional
