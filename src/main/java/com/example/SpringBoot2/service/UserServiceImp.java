@@ -25,39 +25,18 @@ public class UserServiceImp implements UserService {
 
     }
 
-    @Override
-    @Transactional
-    public void createUser(User user) {
-        userRepository.save(user);
-    }
 
     @Override
     @Transactional
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
-//
-    @Override
-    @Transactional
-    public List<Role> findRolesByName(String roleName) {
-        List<Role> roles = new ArrayList<>();
-        for (Role role : getAllRoles()) {
-            if (roleName.contains(role.getName()))
-                roles.add(role);
-        }
-        return roles;
-    }
+
 
     @Override
     @Transactional
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
-    }
-
-    @Override
-    @Transactional
-    public void updateUser(User user) {
-        userRepository.save(user);
     }
 
     @Override
@@ -73,4 +52,38 @@ public class UserServiceImp implements UserService {
         return userRepository.findAll();
 
     }
+
+    public Role findByRoleName(String role) {
+        return roleRepository.findByName(role);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(User user, String[] roles) {
+        addAndCreate(user, roles);
+    }
+
+    @Override
+    @Transactional
+    public void createUser(User user, String[] roles) {
+     addAndCreate(user, roles);
+    }
+
+    private void addAndCreate(User user,
+                              String[] roles){
+        String roleName = null;
+        for (String s : roles) {
+            roleName = s;
+        }
+        Role role = roleRepository.findByName(roleName);
+        List<Role> roleList2 = new ArrayList<>();
+        roleList2.add(role);
+
+        user.setRoles(roleList2);
+
+        userRepository.save(user);
+
+    }
 }
+
+

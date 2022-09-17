@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Entity;
@@ -17,7 +18,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -52,6 +55,12 @@ public class User implements UserDetails { //implements UserDetails { // объ�
 
     private List<Role> roles;
 
+
+
+
+    public String getRolesInfo() {
+        return roles.stream().map(Role::getName).map(r -> r.substring(5)).collect(Collectors.joining(","));
+    }
 
 
 

@@ -27,15 +27,7 @@
         <td th:text="${user.getAge()}">age</td>
         <td th:text="${user.getEmail()}">email</td>
         <td th:text="${user.getPassword()}">password</td>
-        <td th:text="${user.getRole()}">role</td>
-        <select multiple class="custom-select w-100"
-                size="2" id="role" name="role">
-            <option
-                    th:each="role : ${role}"
-                    th:text="${role.getName()}"
-                    th:value="${role.name}">
-            </option>
-        </select>
+        <td th:text="${user.getRolesInfo()}">role</td>
 
         <td><a th:href="@{/edit/{id} (id=${user.id})}">Edit</a></td>
         <td><a th:href="@{/delete/{id} (id=${user.id})}">Delete</a></td>
